@@ -17,17 +17,19 @@ var users = {};
 
 // Main socket function
 io.on('connection', function(socket){
-  console.log(`a user connected on socket ${socket.id}`);
+  console.log(`A user connected on socket ${socket.id}.`);
   
 
 
-  
+  // Handles a user inputting a nickname
   socket.on('user join', function(name){
     console.log(name);
     console.log(`user ${name} assigned to socket ${socket.id}`);
     users[socket.id] = name;
     io.emit('user join', users[socket.id]);
   });
+
+
 
   // Handles chat messages
   socket.on('chat message', function(msg){
