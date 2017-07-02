@@ -1,22 +1,35 @@
 <!doctype html>
 <html>
+
   <head>
     <title>Socket.IO chat</title>
     <link rel="stylesheet" href="./styles.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
+
   <body>
-    <div id="signInModal">
+    <div id="signInModal" class="hidden">
       <form id="nicknameEntryForm">
         <h1 class="nicknameHeader">Welcome to Connor's Test Chat.</h1>
         <input id="userNicknameEntry" autocomplete="off" placeholder="Enter a nickname" required/>
       </form>
     </div>
+    <div class="page">
+      <div class="chatContainer">
+        <ul id="messages"></ul>
+        <div class="typing">Here is the div</div>
+      </div>
+    </div>
+    
+ 
 
-    <ul id="messages"></ul>
+    
+
     <form id="messageEntryForm">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+
+    
 
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
