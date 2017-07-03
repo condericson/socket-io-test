@@ -68,7 +68,7 @@ body {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
-	padding: 5px;
+	padding: 5px 10px;
 }
 
 .page {
@@ -116,4 +116,29 @@ body {
 
 .hidden {
 	display: none;
+}
+
+
+
+
+
+
+/*Scroll bar*/
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #d8d8d8;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #636363;
 }

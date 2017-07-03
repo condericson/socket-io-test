@@ -27,9 +27,11 @@ var socket = io();
 
 	// When a message is sent
 	$('#messageEntryForm').submit(function(){
-		if ($('#m').val().length > 0) {
-			socket.emit('chat message', $('#m').val());
-			$('#m').val('');
+		event.preventDefault();
+		if ($('#chatInput').val().length > 0) {
+			socket.emit('chat message', $('#chatInput').val());
+			$('#chatInput').val('');
+			console.log($('#messages').scrollHeight);
 		}
 		return false;
 	});
@@ -37,11 +39,10 @@ var socket = io();
 	// Handles receipt of messages
 	socket.on('chat message', function(chatInfo){
 		$('#messages').append(`<li><span class="username">${chatInfo.username}: ${chatInfo.msg}`);
-		window.scrollTo(0, document.body.scrollHeight);
 	});
 
 	// Handles typing
-	$('#m').on('keypress', function(e) {
+	$('#chatInput').on('keypress', function(e) {
 		if (e.keyCode == 13) {
 			socket.emit('typing', false);
 		}
