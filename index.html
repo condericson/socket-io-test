@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <div id="signInModal" class="hidden">
+    <div id="signInModal">
       <form id="nicknameEntryForm">
         <h1 class="nicknameHeader">Welcome to Connor's Test Chat.</h1>
         <input id="userNicknameEntry" autocomplete="off" placeholder="Enter a nickname" required/>
@@ -17,19 +17,19 @@
     <div class="page">
       <div class="chatContainer">
         <ul id="messages"></ul>
-        <div class="typing">Here is the div</div>
+        <div class="typing typing_hidden">Here is the div</div>
       </div>
     </div>
-    
- 
 
-    
+
+
+
 
     <form id="messageEntryForm">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 
-    
+
 
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>

@@ -27,8 +27,10 @@ var socket = io();
 
 	// When a message is sent
 	$('#messageEntryForm').submit(function(){
-		socket.emit('chat message', $('#m').val());
-		$('#m').val('');
+		if ($('#m').val().length > 0) {
+			socket.emit('chat message', $('#m').val());
+			$('#m').val('');
+		}
 		return false;
 	});
 
@@ -37,7 +39,34 @@ var socket = io();
 		$('#messages').append(`<li><span class="username">${chatInfo.username}: ${chatInfo.msg}`);
 		window.scrollTo(0, document.body.scrollHeight);
 	});
-	
-	
+
+	// Handles typing
+	$('#m').on('keypress', function(e) {
+		if (e.keyCode == 13) {
+			socket.emit('typing', false);
+		}
+		else {
+			socket.emit('typing', true);
+		}
+
+	})
+
+	// Handles receipt of typing io.emit
+	socket.on('typing', function(name){
+		let myInterval;
+		if (name == false) {
+			clearInterval(myInterval);
+			$('.typing').addClass('typing_hidden');
+		}
+		else {
+			$('.typing').text(`${name} is typing...`);
+			$('.typing').removeClass('typing_hidden');
+			myInterval = setTimeout(function() {
+				$('.typing').addClass('typing_hidden');
+			}, 2000);
+		}
+
+	});
+
 
 });
