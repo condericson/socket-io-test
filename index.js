@@ -26,7 +26,6 @@ io.on('connection', function(socket){
 
   // Handles a user inputting a nickname
   socket.on('user join', function(name){
-    console.log(name);
     console.log(`user ${name} assigned to socket ${socket.id}`);
     state.users[socket.id] = name;
     io.emit('user join', state.users[socket.id]);
@@ -52,8 +51,6 @@ io.on('connection', function(socket){
     if (typing == false) {
       io.emit('typing', false);
     }
-    console.log("reached here");
-
   });
 
 

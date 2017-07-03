@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
+	color: #616161;
 }
 
 html, body {
@@ -47,31 +48,32 @@ body {
 	outline: none;
 }
 
-#messageEntryForm {
+.messageEntryContainer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	padding: 0px 10px 10px;
+	height: 6%;
+}
+
+#messageEntryForm {
+	width: 100%;
+	height: 100%;
+	padding: 0px 30px 20px 20px;
 }
 
 #messageEntryForm input {
-	border: 1px solid black;
-	padding: 10px;
-	width: 90%;
-	margin-right: .5%;
-}
-
-#messageEntryForm button {
-	width: 90px;
-	background: rgb(15, 195, 255);
-	border: none;
-	padding: 10px;
+	border: 2px solid #b3b3b3;
+	border-radius: 5px;
+	display: inline-block;
 	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	padding: 5px;
 }
 
 .page {
 	width: 100%;
-	height: 93%;
+	height: 94%;
 	position: relative;
 }
 

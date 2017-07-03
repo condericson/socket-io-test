@@ -51,9 +51,10 @@ var socket = io();
 
 	})
 
+		let myInterval;
 	// Handles receipt of typing io.emit
 	socket.on('typing', function(name){
-		let myInterval;
+		clearInterval(myInterval);
 		if (name == false) {
 			clearInterval(myInterval);
 			$('.typing').addClass('typing_hidden');
