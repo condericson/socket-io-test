@@ -26,7 +26,7 @@ io.on('connection', function(socket){
 
   // Handles a user inputting a nickname
   socket.on('user join', function(name){
-    console.log(`user ${name} assigned to socket ${socket.id}`);
+    console.log(`user '${name}' assigned to socket ${socket.id}`);
     state.users[socket.id] = name;
     io.emit('user join', state.users[socket.id]);
   });
@@ -71,5 +71,5 @@ io.on('connection', function(socket){
 
 // Acknowledging functional server
 http.listen(port, function(){
-  console.log('listening on *:' + port);
+  console.log('Listening on port: ' + port);
 });
